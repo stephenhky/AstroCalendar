@@ -54,7 +54,7 @@ def julianday_springsolstice(year):
         jden = 2451623.80984 + 365242.37404*y + 0.05169*y*y - 0.00411*y*y*y - 0.00057*y*y*y*y
     else:
         raise ValueError("Year has to be between -1000 and 3000!")
-    return jden
+    return convert_jden_to_julianday(jden)
 
 
 def julianday_summerequinox(year):
@@ -66,7 +66,7 @@ def julianday_summerequinox(year):
         jden = 2451716.56767 + 365241.62603*y + 0.00325*y*y + 0.00888*y*y*y - 0.0003*y*y*y*y
     else:
         raise ValueError("Year has to be between -1000 and 3000!")
-    return jden
+    return convert_jden_to_julianday(jden)
 
 
 def julianday_autumnsolstice(year):
@@ -78,7 +78,7 @@ def julianday_autumnsolstice(year):
         jden = 2451810.21715 + 365242.01767*y - 0.11575*y*y + 0.00337*y*y*y + 0.00078*y*y*y*y
     else:
         raise ValueError("Year has to be between -1000 and 3000!")
-    return jden
+    return convert_jden_to_julianday(jden)
 
 
 def julianday_winterequinox(year):
@@ -90,7 +90,7 @@ def julianday_winterequinox(year):
         jden = 2451900.05952 + 365242.74049*y - 0.06223*y*y - 0.00823*y*y*y + 0.00032*y*y*y*y
     else:
         raise ValueError("Year has to be between -1000 and 3000!")
-    return jden
+    return convert_jden_to_julianday(jden)
 
 
 def convert_julianday_to_calendarday(julianday):
