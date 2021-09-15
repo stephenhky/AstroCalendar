@@ -1,6 +1,7 @@
 
 from math import pi, cos
 from datetime import datetime
+import logging
 
 
 S = [
@@ -104,7 +105,7 @@ def convert_julianday_to_calendarday(julianday):
     B = A + 1524
     C = int((B-122.1) / 365.25)
     D = int(365.25*C)
-    E = int((B-D) / 38.6001)
+    E = int((B-D) / 30.6001)
 
     fracday = B - D - int(30.6001*E) + F
 
@@ -127,8 +128,10 @@ def convert_julianday_to_calendarday(julianday):
     hour = int(frachour)
     fracmin = (frachour - hour)*60
     min = int(fracmin)
-    fracsec = fracmin - min
+    fracsec = (fracmin - min)*60
     sec = int(fracsec)
-    msec = (fracsec - sec)*1000
+    msec = int((fracsec - sec)*1000)
+
+    logging.debug('{}-{}-{} {}:{}:{}.{}'.format(year, month, day, hour, min, sec, msec))
 
     return datetime(year, month, day, hour, min, sec, msec)
